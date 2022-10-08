@@ -1,20 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, StyleSheet, View } from "react-native";
-import { Audio } from "expo-av";
-import { VStack, NativeBaseProvider } from "native-base";
+import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import TabNavigator from "@/features/navigator/components/TabNavigator";
+import { StyleSheet } from "react-native";
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        <View style={styles.container}>
-          <VStack space="16">
-            <Text>Test</Text>
-            <Text>Test</Text>
-          </VStack>
-          <StatusBar style="auto" />
-        </View>
+        <TabNavigator />
       </NavigationContainer>
     </NativeBaseProvider>
   );
@@ -23,8 +17,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  lightContainer: {
+    backgroundColor: "#d0d0c0",
+  },
+  darkContainer: {
+    backgroundColor: "#242c40",
+  },
+  lightThemeText: {
+    color: "#242c40",
+  },
+  darkThemeText: {
+    color: "#d0d0c0",
   },
 });
