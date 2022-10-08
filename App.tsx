@@ -2,34 +2,20 @@ import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import TabNavigator from "@/features/navigator/components/TabNavigator";
-import { StyleSheet } from "react-native";
+import useDefaultTheme from "@/design/hooks/useDefaultTheme";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
+  const { theme, isLoading } = useDefaultTheme();
+
+  if (isLoading) return null;
+
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <NavigationContainer>
         <TabNavigator />
+        <StatusBar />
       </NavigationContainer>
     </NativeBaseProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  lightContainer: {
-    backgroundColor: "#d0d0c0",
-  },
-  darkContainer: {
-    backgroundColor: "#242c40",
-  },
-  lightThemeText: {
-    color: "#242c40",
-  },
-  darkThemeText: {
-    color: "#d0d0c0",
-  },
-});

@@ -1,6 +1,5 @@
 import React from "react";
-import { Center } from "native-base";
-import { Button } from "react-native";
+import { Button, Center } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { RootNavigationProps } from "@/features/navigator";
 
@@ -13,7 +12,7 @@ export const TransactionsScreen: React.FC = () => {
 
   return (
     <Center flex={1}>
-      <Button title="Go to settings" onPress={handlePress} />
+      <Button onPress={handlePress}>Go to settings</Button>
     </Center>
   );
 };
