@@ -1,21 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import { Audio } from "expo-av";
+import { VStack, NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  const handleShow = async () => {
-    const { sound } = await Audio.Sound.createAsync(
-      require("./assets/fart.mp3")
-    );
-
-    sound.playAsync();
-  };
-
   return (
-    <View style={styles.container}>
-      <Button title="Druk voor iets grappigs" onPress={handleShow} />
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <View style={styles.container}>
+          <VStack space="16">
+            <Text>Test</Text>
+            <Text>Test</Text>
+          </VStack>
+          <StatusBar style="auto" />
+        </View>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
