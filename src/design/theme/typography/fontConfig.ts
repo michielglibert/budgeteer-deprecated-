@@ -1,4 +1,4 @@
-const fontConfig = {
+export default {
   Manrope: {
     200: {
       normal: "Manrope_200ExtraLight",
@@ -23,5 +23,3 @@ const fontConfig = {
     },
   },
 };
-
-export default fontConfig;

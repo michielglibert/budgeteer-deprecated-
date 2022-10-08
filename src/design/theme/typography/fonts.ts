@@ -1,9 +1,7 @@
 const font = "Manrope";
 
-const fonts = {
+export default {
   heading: font,
   body: font,
   mono: font,
 };
-
-export default fonts;

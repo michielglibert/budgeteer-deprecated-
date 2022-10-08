@@ -1,5 +1,4 @@
 import { extendTheme } from "native-base";
-import themeObject from "../theme";
 import {
   useFonts,
   Manrope_200ExtraLight,
@@ -11,6 +10,7 @@ import {
   Manrope_800ExtraBold,
 } from "@expo-google-fonts/manrope";
 import typography from "../theme/typography";
+import themeObject from "../theme";
 
 const useDefaultTheme = () => {
   let [fontsLoaded] = useFonts({
@@ -23,9 +23,7 @@ const useDefaultTheme = () => {
     Manrope_800ExtraBold,
   });
 
-  const theme = extendTheme({
-    ...typography,
-  });
+  const theme = extendTheme(themeObject);
 
   return {
     theme,
