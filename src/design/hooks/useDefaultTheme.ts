@@ -23,10 +23,8 @@ const useDefaultTheme = () => {
     Manrope_800ExtraBold,
   });
 
-  const theme = extendTheme(themeObject);
-
   return {
-    theme,
+    theme: themeObject,
     isLoading: !fontsLoaded,
   };
 };

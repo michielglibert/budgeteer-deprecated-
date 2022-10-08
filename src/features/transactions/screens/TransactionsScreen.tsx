@@ -12,7 +12,9 @@ export const TransactionsScreen: React.FC = () => {
 
   return (
     <Center flex={1}>
-      <Button onPress={handlePress}>Go to settings</Button>
+      <Button onPress={handlePress} colorScheme="secondary">
+        Go to settings
+      </Button>
     </Center>
   );
 };

@@ -1,4 +1,4 @@
-import { InterfaceButtonProps } from "native-base/lib/typescript/components/primitives/Button/types";
+import { Dict } from "native-base/lib/typescript/theme/tools";
 
 const baseStyle = {
   borderRadius: "9999px",
@@ -16,7 +16,7 @@ const sizes = {
 };
 
 const variants = {
-  primary: ({ colorScheme }: InterfaceButtonProps) => {
+  primary: ({ colorScheme }: Dict) => {
     return {
       bg: `${colorScheme}.500`,
       _text: {
@@ -24,7 +24,7 @@ const variants = {
       },
     };
   },
-  secondary: ({ colorScheme }: InterfaceButtonProps) => {
+  secondary: ({ colorScheme }: Dict) => {
     return {
       bg: `${colorScheme}.100`,
       _text: {
