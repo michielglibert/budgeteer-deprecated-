@@ -1,6 +1,6 @@
 import { Card, CardTitle } from "@/design";
 import { Button, FormControl, Input, VStack } from "native-base";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import React from "react";
 import { LoginForm, loginFormSchema } from "../types/Form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,7 +9,7 @@ import { RootStackNavigationProps } from "@/features/navigator/types/RootStackNa
 
 const LoginCard: React.FC = () => {
   const {
-    register,
+    control,
     formState: { errors },
     handleSubmit,
   } = useForm<LoginForm>({
@@ -26,21 +26,46 @@ const LoginCard: React.FC = () => {
     navigate.navigate("Register");
   };
 
-  console.log(errors);
-
   return (
     <Card space="4">
       <VStack space="3">
         <CardTitle>Login</CardTitle>
-        <FormControl>
+        <FormControl isInvalid={!!errors.email}>
           <FormControl.Label>Email</FormControl.Label>
-          <Input {...register("email")} />
-          <FormControl.ErrorMessage>{errors.email}</FormControl.ErrorMessage>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                placeholder="Email"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+              />
+            )}
+          />
+          <FormControl.ErrorMessage>
+            {errors.email?.message}
+          </FormControl.ErrorMessage>
         </FormControl>
-        <FormControl>
+        <FormControl isInvalid={!!errors.password}>
           <FormControl.Label>Password</FormControl.Label>
-          <Input {...register("password")} type="password" />
-          <FormControl.ErrorMessage>{errors.password}</FormControl.ErrorMessage>
+          <Controller
+            name="password"
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                placeholder="Password"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                type="password"
+              />
+            )}
+          />
+          <FormControl.ErrorMessage>
+            {errors.password?.message}
+          </FormControl.ErrorMessage>
         </FormControl>
       </VStack>
       <VStack space="2">
