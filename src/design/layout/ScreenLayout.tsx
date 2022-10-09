@@ -5,7 +5,7 @@ const ScreenLayoutComponent: React.FC<PropsWithChildren<unknown>> = ({
   children,
 }) => {
   return (
-    <Flex flexGrow={1} p="4" bg="amber.100" h="100%">
+    <Flex flexGrow={1} p="4" bg="base.background" h="100%">
       {children}
     </Flex>
   );
@@ -20,9 +20,11 @@ export const ScreenLayout: React.FC<PropsWithChildren<Props>> = ({
   children,
 }) => {
   if (withScroll) {
-    <ScrollView h="100%">
-      <ScreenLayoutComponent>{children}</ScreenLayoutComponent>
-    </ScrollView>;
+    return (
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <ScreenLayoutComponent>{children}</ScreenLayoutComponent>
+      </ScrollView>
+    );
   }
 
   return <ScreenLayoutComponent>{children}</ScreenLayoutComponent>;
