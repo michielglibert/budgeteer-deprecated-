@@ -6,7 +6,7 @@ interface Props {
   description: string;
 }
 
-const TextSection: React.FC<PropsWithChildren<Props>> = ({
+export const TextSection: React.FC<PropsWithChildren<Props>> = ({
   title,
   description,
 }) => {
@@ -19,5 +19,3 @@ const TextSection: React.FC<PropsWithChildren<Props>> = ({
     </VStack>
   );
 };
-
-export default TextSection;

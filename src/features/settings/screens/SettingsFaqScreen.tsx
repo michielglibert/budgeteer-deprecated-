@@ -1,6 +1,4 @@
-import { Card, ScreenLayout } from "@/design";
-import TextSection from "@/design/components/text/TextSection";
-import { Box } from "native-base";
+import { Card, ScreenLayout, TextSection } from "@/design";
 import React from "react";
 
 export const SettingsFaqScreen: React.FC = () => {
