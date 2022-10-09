@@ -1,16 +1,24 @@
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { HStack, Pressable, Text, useTheme } from "native-base";
+import { ColorType } from "native-base/lib/typescript/components/types";
+import { Icon } from "@/design";
 
 interface Props {
   iconName: keyof typeof MaterialCommunityIcons.glyphMap;
   title: string;
+  color?: ColorType;
   onPress?: () => void;
+  isNavigable?: boolean;
 }
 
-export const SettingsItem: React.FC<Props> = ({ iconName, title, onPress }) => {
-  const { colors } = useTheme();
-
+export const SettingsItem: React.FC<Props> = ({
+  iconName,
+  title,
+  color = "base.fontColor",
+  onPress,
+  isNavigable,
+}) => {
   return (
     <Pressable onPress={onPress}>
       {({ isPressed }) => (
@@ -23,19 +31,13 @@ export const SettingsItem: React.FC<Props> = ({ iconName, title, onPress }) => {
           bg={onPress && isPressed ? "gray.100" : "white"}
         >
           <HStack space="3">
-            <MaterialCommunityIcons
-              name={iconName}
-              color={colors.base.fontColor}
-              size={24}
-            />
-            <Text fontWeight="medium">{title}</Text>
+            <Icon name={iconName} color={color} size={24} />
+            <Text fontWeight="medium" color={color}>
+              {title}
+            </Text>
           </HStack>
-          {onPress && (
-            <MaterialCommunityIcons
-              name="chevron-right"
-              color={colors.primary[500]}
-              size={24}
-            />
+          {isNavigable && (
+            <Icon name="chevron-right" color="primary.500" size={24} />
           )}
         </HStack>
       )}

@@ -2,18 +2,10 @@ import { Card } from "@/design";
 import React from "react";
 import { SettingsItem } from "./SettingsItem";
 
-interface Props {
-  onPress?: () => void;
-}
-
-const UserItem: React.FC<Props> = ({ onPress }) => {
+const UserItem: React.FC = () => {
   return (
     <Card p="0">
-      <SettingsItem
-        iconName="account"
-        title="Michiel Glibert"
-        onPress={onPress}
-      />
+      <SettingsItem iconName="account" title="Michiel Glibert" />
     </Card>
   );
 };

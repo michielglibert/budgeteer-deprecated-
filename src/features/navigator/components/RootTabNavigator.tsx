@@ -10,7 +10,7 @@ import { SettingsStackNavigator } from "./SettingsStackNavigator";
 
 const Tab = createBottomTabNavigator<RootTabNavigationParams>();
 
-const TabNavigator: React.FC = () => {
+const RootTabNavigator: React.FC = () => {
   const { colors, space } = useTheme();
 
   const style = StyleSheet.create({
@@ -58,4 +58,4 @@ const TabNavigator: React.FC = () => {
   );
 };
 
-export default TabNavigator;
+export default RootTabNavigator;

@@ -1,4 +1,5 @@
 export type RootTabNavigationParams = {
+  LoginTab: undefined;
   TransactionsTab: undefined;
   SettingsTab: undefined;
 };

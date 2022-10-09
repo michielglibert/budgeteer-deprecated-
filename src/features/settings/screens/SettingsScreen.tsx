@@ -3,6 +3,7 @@ import { VStack, ScrollView } from "native-base";
 import UserItem from "../components/items/UserItem";
 import GeneralItems from "../components/items/GeneralItems";
 import { ScreenLayout, ScreenTitle } from "@/design";
+import LogoutItem from "../components/items/LogoutItem";
 
 export const SettingsScreen: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ export const SettingsScreen: React.FC = () => {
       <VStack space="4">
         <UserItem />
         <GeneralItems />
+        <LogoutItem />
       </VStack>
     </ScreenLayout>
   );

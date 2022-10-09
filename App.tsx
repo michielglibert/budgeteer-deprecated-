@@ -1,8 +1,8 @@
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import TabNavigator from "@/features/navigator/components/RootTabNavigator";
 import { useDefaultTheme } from "@/design";
+import { RootStackNavigator } from "@/features/navigator/components/RootStackNavigator";
 
 export default function App() {
   const { theme, isLoading } = useDefaultTheme();
@@ -12,7 +12,7 @@ export default function App() {
   return (
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
-        <TabNavigator />
+        <RootStackNavigator />
       </NavigationContainer>
     </NativeBaseProvider>
   );

@@ -27,16 +27,19 @@ const GeneralItems: React.FC<Props> = () => {
         iconName="account-cash"
         title="Budget setup"
         onPress={handleBudgetSetupPress}
+        isNavigable
       />
       <SettingsItem
         iconName="connection"
         title="Connections"
         onPress={handleConnectionsPress}
+        isNavigable
       />
       <SettingsItem
         iconName="help-circle"
         title="FAQ"
         onPress={handleFaqPress}
+        isNavigable
       />
     </Card>
   );
