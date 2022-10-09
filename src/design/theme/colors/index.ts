@@ -1,13 +1,15 @@
 import primary from "./primary";
 import secondary from "./secondary";
-import status from "./status";
+import error from "./error";
+import success from "./success";
 import gray from "./gray";
 import base from "./base";
 
 export default {
   primary,
   secondary,
-  status,
   gray,
   base,
+  error,
+  success,
 };
