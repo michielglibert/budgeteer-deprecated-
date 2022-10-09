@@ -5,7 +5,7 @@ interface Props {
   title: string;
 }
 
-const TitledList: React.FC<PropsWithChildren<Props>> = ({
+const TitledSection: React.FC<PropsWithChildren<Props>> = ({
   title,
   children,
 }) => {
@@ -19,4 +19,4 @@ const TitledList: React.FC<PropsWithChildren<Props>> = ({
   );
 };
 
-export default TitledList;
+export default TitledSection;

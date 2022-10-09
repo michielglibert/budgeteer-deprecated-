@@ -13,8 +13,7 @@ export const SettingsBudgetScreen: React.FC = () => {
   };
 
   return (
-    <ScreenLayout>
-      <ScreenTitle>Budget setup</ScreenTitle>
+    <ScreenLayout title="Budget setup">
       <Card space="3">
         <FormControl>
           <FormControl.Label>Amount</FormControl.Label>

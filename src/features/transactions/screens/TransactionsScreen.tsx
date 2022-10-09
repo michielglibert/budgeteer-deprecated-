@@ -2,15 +2,15 @@ import React from "react";
 import { Text, VStack } from "native-base";
 import { ScreenLayout } from "@/design";
 import BudgetCard from "../components/BudgetCard";
-import TitledList from "@/design/layout/TitledList";
+import TitledSection from "@/design/layout/TitledList";
 import SingleTransaction from "../components/SingleTransaction";
 
 export const TransactionsScreen: React.FC = () => {
   return (
-    <ScreenLayout withScroll>
+    <ScreenLayout>
       <VStack space="4">
         <BudgetCard month="January" maxSpendings={600} currentSpendings={400} />
-        <TitledList title="Debts for this month">
+        <TitledSection title="Debts for this month">
           <VStack space="4">
             {[...Array(15).keys()].map((_, index) => (
               <SingleTransaction
@@ -21,7 +21,7 @@ export const TransactionsScreen: React.FC = () => {
               />
             ))}
           </VStack>
-        </TitledList>
+        </TitledSection>
       </VStack>
     </ScreenLayout>
   );

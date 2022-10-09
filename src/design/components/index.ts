@@ -1,3 +1,3 @@
 export * from "./Card";
-export * from "./ScreenTitle";
+export * from "./text/ScreenTitle";
 export * from "./Icon";
