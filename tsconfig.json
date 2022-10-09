@@ -8,6 +8,5 @@
     },
     "typeRoots": ["src/types"]
   },
-  "include": ["./src", "./assets"],
   "extends": "expo/tsconfig.base"
 }

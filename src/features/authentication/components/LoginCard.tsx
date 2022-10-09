@@ -1,16 +1,20 @@
 import { Card, CardTitle } from "@/design";
-import { Button, FormControl, Input, VStack } from "native-base";
+import { Button, FormControl, Input, Text, VStack } from "native-base";
 import { Controller, useForm } from "react-hook-form";
-import React from "react";
+import React, { useState } from "react";
 import { LoginForm, loginFormSchema } from "../types/Form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigation } from "@react-navigation/native";
 import { RootStackNavigationProps } from "@/features/navigator/types/RootStackNavigation";
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
 
 const LoginCard: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [apiError, setApiError] = useState<string>();
+
   const {
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     handleSubmit,
   } = useForm<LoginForm>({
     resolver: yupResolver(loginFormSchema),
@@ -18,8 +22,16 @@ const LoginCard: React.FC = () => {
 
   const navigate = useNavigation<RootStackNavigationProps>();
 
-  const handleLogin = handleSubmit((values) => {
-    console.log(values);
+  const handleLogin = handleSubmit(async (values) => {
+    setIsLoading(true);
+    try {
+      await auth().signInWithEmailAndPassword(values.email, values.password);
+    } catch (e) {
+      const errorObject = e as FirebaseAuthTypes.NativeFirebaseAuthError;
+      const trimmedMessage = errorObject.message.split("]")[1].trim();
+      setApiError(trimmedMessage);
+      setIsLoading(false);
+    }
   });
 
   const handleRegister = () => {
@@ -30,6 +42,11 @@ const LoginCard: React.FC = () => {
     <Card space="4">
       <VStack space="3">
         <CardTitle>Login</CardTitle>
+        {apiError && (
+          <Text textAlign="center" color="error.500">
+            {apiError}
+          </Text>
+        )}
         <FormControl isInvalid={!!errors.email}>
           <FormControl.Label>Email</FormControl.Label>
           <Controller
@@ -69,7 +86,9 @@ const LoginCard: React.FC = () => {
         </FormControl>
       </VStack>
       <VStack space="2">
-        <Button onPress={handleLogin}>Login</Button>
+        <Button onPress={handleLogin} isLoading={isSubmitting}>
+          Login
+        </Button>
         <Button colorScheme="secondary" onPress={handleRegister}>
           Register
         </Button>
