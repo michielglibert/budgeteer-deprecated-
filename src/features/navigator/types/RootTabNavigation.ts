@@ -1,6 +1,6 @@
 export type RootTabNavigationParams = {
-  Transactions: undefined;
-  Settings: undefined;
+  TransactionsTab: undefined;
+  SettingsTab: undefined;
 };
 
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";

@@ -9,10 +9,9 @@ import {
   Manrope_700Bold,
   Manrope_800ExtraBold,
 } from "@expo-google-fonts/manrope";
-import typography from "../theme/typography";
 import themeObject from "../theme";
 
-const useDefaultTheme = () => {
+export const useDefaultTheme = () => {
   let [fontsLoaded] = useFonts({
     Manrope_200ExtraLight,
     Manrope_300Light,
@@ -28,5 +27,3 @@ const useDefaultTheme = () => {
     isLoading: !fontsLoaded,
   };
 };
-
-export default useDefaultTheme;

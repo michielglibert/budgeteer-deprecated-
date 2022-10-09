@@ -1,10 +1,6 @@
 import { Box } from "native-base";
 import React from "react";
 
-interface Props {}
-
-const SettingsBudgetScreen: React.FC<Props> = () => {
+export const SettingsBudgetScreen: React.FC = () => {
   return <Box>Budget</Box>;
 };
-
-export default SettingsBudgetScreen;

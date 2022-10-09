@@ -14,6 +14,7 @@ const CardContainer: React.FC<PropsWithChildren<InterfaceStackProps>> = ({
       bg="white"
       w="100%"
       borderRadius="lg"
+      overflow="hidden"
       {...props}
     >
       {children}
@@ -25,7 +26,7 @@ interface Props {
   onPress?: () => void;
 }
 
-const Card: React.FC<PropsWithChildren<InterfaceStackProps & Props>> = ({
+export const Card: React.FC<PropsWithChildren<InterfaceStackProps & Props>> = ({
   onPress,
   children,
   ...props
@@ -38,5 +39,3 @@ const Card: React.FC<PropsWithChildren<InterfaceStackProps & Props>> = ({
 
   return <CardContainer {...props}>{children}</CardContainer>;
 };
-
-export default Card;

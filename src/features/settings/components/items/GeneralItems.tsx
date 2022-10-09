@@ -1,9 +1,8 @@
-import Card from "@/design/components/Card";
+import { Card } from "@/design";
 import { SettingsStackNavigationProps } from "@/features/navigator";
 import { useNavigation } from "@react-navigation/native";
-import { Divider } from "native-base";
 import React from "react";
-import SettingsItem from "./SettingsItem";
+import { SettingsItem } from "./SettingsItem";
 
 interface Props {}
 
@@ -23,7 +22,7 @@ const GeneralItems: React.FC<Props> = () => {
   };
 
   return (
-    <Card space="6">
+    <Card p="0">
       <SettingsItem
         iconName="cog-outline"
         title="Budget setup"

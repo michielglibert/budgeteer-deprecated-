@@ -2,11 +2,10 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RootTabNavigationParams } from "../types";
 import { TransactionsScreen } from "@/features/transactions";
-import { SettingsScreen } from "@/features/settings";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTheme } from "native-base";
 import { StyleSheet } from "react-native";
-import SettingsItem from "@/features/settings/components/items/SettingsItem";
+import { SettingsItem } from "@/features/settings";
 import { SettingsStackNavigator } from "./SettingsStackNavigator";
 
 const Tab = createBottomTabNavigator<RootTabNavigationParams>();
@@ -27,11 +26,11 @@ const TabNavigator: React.FC = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => {
           switch (route.name) {
-            case "Transactions":
+            case "TransactionsTab":
               return (
                 <Ionicons name="md-cash-outline" size={size} color={color} />
               );
-            case "Settings":
+            case "SettingsTab":
               return <Ionicons name="cog-outline" size={size} color={color} />;
           }
         },
@@ -41,18 +40,19 @@ const TabNavigator: React.FC = () => {
       })}
     >
       <Tab.Screen
-        name="Transactions"
+        name="TransactionsTab"
         component={TransactionsScreen}
         options={{
           headerTitle: () => (
             <SettingsItem iconName="account" title="Michiel Glibert" />
           ),
+          tabBarLabel: "Transactions",
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="SettingsTab"
         component={SettingsStackNavigator}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarLabel: "Settings" }}
       />
     </Tab.Navigator>
   );

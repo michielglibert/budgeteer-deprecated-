@@ -1,10 +1,6 @@
 import { Box } from "native-base";
 import React from "react";
 
-interface Props {}
-
-const SettingsFaqScreen: React.FC<Props> = () => {
+export const SettingsFaqScreen: React.FC = () => {
   return <Box>FAQ</Box>;
 };
-
-export default SettingsFaqScreen;

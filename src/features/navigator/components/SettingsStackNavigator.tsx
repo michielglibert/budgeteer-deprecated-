@@ -1,13 +1,12 @@
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationOptions,
-} from "@react-navigation/native-stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { SettingsStackNavigationParams } from "../types";
-import SettingsBudgetScreen from "@/features/settings/screens/SettingsBudgetScreen";
-import SettingsConnectionsScreen from "@/features/settings/screens/SettingsConnectionsScreen";
-import SettingsFaqScreen from "@/features/settings/screens/SettingsFaqScreen";
-import { SettingsScreen } from "@/features/settings";
+import {
+  SettingsBudgetScreen,
+  SettingsConnectionsScreen,
+  SettingsFaqScreen,
+  SettingsScreen,
+} from "@/features/settings";
 
 const Stack = createNativeStackNavigator<SettingsStackNavigationParams>();
 

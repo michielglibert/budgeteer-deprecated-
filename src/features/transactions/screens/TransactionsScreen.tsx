@@ -1,18 +1,18 @@
 import React from "react";
-import { Button, Center, FormControl, Input } from "native-base";
+import { Button, FormControl, Input } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import { RootTabNavigationProps } from "@/features/navigator";
-import Card from "@/design/components/Card";
+import { Card, ScreenLayout } from "@/design";
 
 export const TransactionsScreen: React.FC = () => {
   const navigation = useNavigation<RootTabNavigationProps>();
 
   const handlePress = () => {
-    navigation.navigate("Settings");
+    navigation.navigate("SettingsTab");
   };
 
   return (
-    <Center flex={1} p="4">
+    <ScreenLayout>
       <Card>
         <Button onPress={handlePress} colorScheme="primary" variant="primary">
           Go to settings
@@ -22,6 +22,6 @@ export const TransactionsScreen: React.FC = () => {
           <Input />
         </FormControl>
       </Card>
-    </Center>
+    </ScreenLayout>
   );
 };
