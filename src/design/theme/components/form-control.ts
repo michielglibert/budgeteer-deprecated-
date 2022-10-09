@@ -1,6 +1,8 @@
 export const FormControlLabel = {
-  baseStyle: {
-    fontWeight: "semibold",
-    color: "#24292F",
-  },
+  baseStyle: () => ({
+    _text: {
+      fontWeight: "medium",
+      color: "#24292F",
+    },
+  }),
 };

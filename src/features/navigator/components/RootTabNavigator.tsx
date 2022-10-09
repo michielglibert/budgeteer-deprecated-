@@ -1,13 +1,15 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { RootNavigationParams } from "../types";
+import { RootTabNavigationParams } from "../types";
 import { TransactionsScreen } from "@/features/transactions";
 import { SettingsScreen } from "@/features/settings";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useTheme } from "native-base";
 import { StyleSheet } from "react-native";
+import SettingsItem from "@/features/settings/components/items/SettingsItem";
+import { SettingsStackNavigator } from "./SettingsStackNavigator";
 
-const Tab = createBottomTabNavigator<RootNavigationParams>();
+const Tab = createBottomTabNavigator<RootTabNavigationParams>();
 
 const TabNavigator: React.FC = () => {
   const { colors, space } = useTheme();
@@ -38,8 +40,20 @@ const TabNavigator: React.FC = () => {
         tabBarStyle: style.tabBarItem,
       })}
     >
-      <Tab.Screen name="Transactions" component={TransactionsScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen
+        name="Transactions"
+        component={TransactionsScreen}
+        options={{
+          headerTitle: () => (
+            <SettingsItem iconName="account" title="Michiel Glibert" />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={SettingsStackNavigator}
+        options={{ headerShown: false }}
+      />
     </Tab.Navigator>
   );
 };

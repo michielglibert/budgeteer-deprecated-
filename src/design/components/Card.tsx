@@ -1,16 +1,42 @@
-import { Box } from "native-base";
-import { InterfaceBoxProps } from "native-base/lib/typescript/components/primitives/Box";
+import { Pressable, Stack } from "native-base";
+import { InterfaceStackProps } from "native-base/lib/typescript/components/primitives/Stack/Stack";
 import React, { PropsWithChildren } from "react";
 
-const Card: React.FC<PropsWithChildren<InterfaceBoxProps>> = ({
+const CardContainer: React.FC<PropsWithChildren<InterfaceStackProps>> = ({
   children,
   ...props
 }) => {
   return (
-    <Box p="3" shadow="level1" bg="white" w="100%" borderRadius="lg" {...props}>
+    <Stack
+      direction="column"
+      p="3"
+      shadow="level1"
+      bg="white"
+      w="100%"
+      borderRadius="lg"
+      {...props}
+    >
       {children}
-    </Box>
+    </Stack>
   );
+};
+
+interface Props {
+  onPress?: () => void;
+}
+
+const Card: React.FC<PropsWithChildren<InterfaceStackProps & Props>> = ({
+  onPress,
+  children,
+  ...props
+}) => {
+  if (onPress) {
+    <Pressable onPress={onPress}>
+      <CardContainer {...props}>{children}</CardContainer>
+    </Pressable>;
+  }
+
+  return <CardContainer {...props}>{children}</CardContainer>;
 };
 
 export default Card;

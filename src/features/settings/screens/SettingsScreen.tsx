@@ -1,6 +1,18 @@
 import React from "react";
-import { Center } from "native-base";
+import { VStack, Text, ScrollView } from "native-base";
+import UserItem from "../components/items/UserItem";
+import GeneralItems from "../components/items/GeneralItems";
+import { SettingsStackNavigator } from "@/features/navigator";
+import ScreenTitle from "@/design/components/ScreenTitle";
 
 export const SettingsScreen: React.FC = () => {
-  return <Center>Settings</Center>;
+  return (
+    <ScrollView>
+      <VStack p="4" space="4">
+        <ScreenTitle>Settings</ScreenTitle>
+        <UserItem />
+        <GeneralItems />
+      </VStack>
+    </ScrollView>
+  );
 };

@@ -1,9 +1,9 @@
-export type RootNavigationParams = {
+export type RootTabNavigationParams = {
   Transactions: undefined;
   Settings: undefined;
 };
 
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-export type RootNavigationProps =
-  NativeStackNavigationProp<RootNavigationParams>;
+export type RootTabNavigationProps =
+  NativeStackNavigationProp<RootTabNavigationParams>;
