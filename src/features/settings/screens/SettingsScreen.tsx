@@ -7,8 +7,8 @@ import { ScreenLayout, ScreenTitle } from "@/design";
 export const SettingsScreen: React.FC = () => {
   return (
     <ScreenLayout withScroll>
+      <ScreenTitle>Settings</ScreenTitle>
       <VStack space="4">
-        <ScreenTitle>Settings</ScreenTitle>
         <UserItem />
         <GeneralItems />
       </VStack>

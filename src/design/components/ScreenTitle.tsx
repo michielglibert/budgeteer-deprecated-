@@ -5,7 +5,7 @@ export const ScreenTitle: React.FC<PropsWithChildren<unknown>> = ({
   children,
 }) => {
   return (
-    <Text fontSize="h1" fontWeight="bold">
+    <Text fontSize="h1" fontWeight="bold" mb="4">
       {children}
     </Text>
   );
