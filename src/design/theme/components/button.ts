@@ -22,13 +22,31 @@ const variants = {
       _text: {
         color: "white",
       },
+      _pressed: {
+        bg: `${colorScheme}.400`,
+      },
     };
   },
   secondary: ({ colorScheme }: Dict) => {
     return {
       bg: `${colorScheme}.100`,
       _text: {
-        color: "white",
+        color: `${colorScheme}.500`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.200`,
+      },
+    };
+  },
+  outline: ({ colorScheme }: Dict) => {
+    return {
+      borderColor: `${colorScheme}.500`,
+      border: "1px solid",
+      _text: {
+        color: `${colorScheme}.500`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.100`,
       },
     };
   },
