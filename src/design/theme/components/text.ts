@@ -1,5 +1,6 @@
 const baseStyle = {
-  color: "base.text",
+  color: "base.fontColor",
+  fontSize: "regular",
 };
 
 export default {

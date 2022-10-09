@@ -1,27 +1,18 @@
 import React from "react";
-import { Button, FormControl, Input } from "native-base";
-import { useNavigation } from "@react-navigation/native";
-import { RootTabNavigationProps } from "@/features/navigator";
-import { Card, ScreenLayout } from "@/design";
+import { Text, VStack } from "native-base";
+import { ScreenLayout } from "@/design";
+import BudgetCard from "../components/BudgetCard";
+import TitledList from "@/design/layout/TitledList";
 
 export const TransactionsScreen: React.FC = () => {
-  const navigation = useNavigation<RootTabNavigationProps>();
-
-  const handlePress = () => {
-    navigation.navigate("SettingsTab");
-  };
-
   return (
     <ScreenLayout>
-      <Card>
-        <Button onPress={handlePress} colorScheme="primary" variant="primary">
-          Go to settings
-        </Button>
-        <FormControl>
-          <FormControl.Label>Test</FormControl.Label>
-          <Input />
-        </FormControl>
-      </Card>
+      <VStack space="4">
+        <BudgetCard month="January" maxSpendings={600} currentSpendings={400} />
+        <TitledList title="Debts for this month">
+          <Text>test</Text>
+        </TitledList>
+      </VStack>
     </ScreenLayout>
   );
 };

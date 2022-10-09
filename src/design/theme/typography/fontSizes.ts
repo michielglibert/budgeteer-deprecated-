@@ -1,8 +1,9 @@
 export default {
-  extraSmallText: 10,
-  smallText: 14,
-  text: 14,
-  h3: 16,
-  h2: 24,
+  extraSmall: 10,
+  small: 12,
+  regular: 14,
+  large: 16,
+  h3: 24,
+  h2: 28,
   h1: 36,
 };
