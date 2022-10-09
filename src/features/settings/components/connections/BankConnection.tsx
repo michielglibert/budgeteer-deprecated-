@@ -1,4 +1,4 @@
-import { Card, KeyValue } from "@/design";
+import { Card, CardTitle, KeyValue } from "@/design";
 import { formatDate } from "@/utils";
 import { addDays } from "date-fns";
 import { Button, Text, VStack } from "native-base";
@@ -20,9 +20,7 @@ const BankConnection: React.FC<Props> = ({
   return (
     <Card space="3">
       <VStack>
-        <Text fontSize="h3" fontWeight="bold">
-          Bank connection
-        </Text>
+        <CardTitle>Bank connection</CardTitle>
         {bankConnection && <ConnectionStatus status="SUCCESS" />}
       </VStack>
       {bankConnection ? (

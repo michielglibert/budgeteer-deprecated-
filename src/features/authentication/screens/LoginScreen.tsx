@@ -3,10 +3,11 @@ import { RootStackNavigationProps } from "@/features/navigator/types/RootStackNa
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "native-base";
 import React from "react";
+import LoginCard from "../components/LoginCard";
 
 interface Props {}
 
-const LoginScreen: React.FC<Props> = () => {
+export const LoginScreen: React.FC<Props> = () => {
   const navigation = useNavigation<RootStackNavigationProps>();
 
   const handlePress = () => {
@@ -14,10 +15,8 @@ const LoginScreen: React.FC<Props> = () => {
   };
 
   return (
-    <ScreenLayout title="Login">
-      <Button onPress={handlePress}>Login</Button>
+    <ScreenLayout alignItems="center" justify="center">
+      <LoginCard />
     </ScreenLayout>
   );
 };
-
-export default LoginScreen;

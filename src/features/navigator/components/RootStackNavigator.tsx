@@ -1,4 +1,4 @@
-import LoginScreen from "@/features/authentication/screens/LoginScreen";
+import { LoginScreen, RegisterScreen } from "@/features/authentication";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { RootStackNavigationParams } from "../types/RootStackNavigation";
@@ -12,6 +12,11 @@ export const RootStackNavigator: React.FC = () => {
       <Stack.Screen
         name="Login"
         component={LoginScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Register"
+        component={RegisterScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen

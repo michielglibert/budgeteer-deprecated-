@@ -1,4 +1,4 @@
-import { Flex, ScrollView } from "native-base";
+import { Flex, IFlexProps, ScrollView } from "native-base";
 import React, { PropsWithChildren } from "react";
 import { ScreenTitle } from "../components";
 
@@ -7,10 +7,10 @@ interface ScreenLayoutComponentProps {
 }
 
 const ScreenLayoutComponent: React.FC<
-  PropsWithChildren<ScreenLayoutComponentProps>
-> = ({ title, children }) => {
+  PropsWithChildren<ScreenLayoutComponentProps & IFlexProps>
+> = ({ title, children, ...props }) => {
   return (
-    <Flex flexGrow={1} p="4" bg="base.background" h="100%">
+    <Flex flexGrow={1} p="4" bg="base.background" h="100%" {...props}>
       {title && <ScreenTitle>{title}</ScreenTitle>}
       {children}
     </Flex>
@@ -22,7 +22,7 @@ interface Props {
 }
 
 export const ScreenLayout: React.FC<
-  PropsWithChildren<Props & ScreenLayoutComponentProps>
+  PropsWithChildren<Props & ScreenLayoutComponentProps & IFlexProps>
 > = ({ withScroll = true, children, ...props }) => {
   if (withScroll) {
     return (

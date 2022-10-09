@@ -21,6 +21,15 @@ const baseStyle = {
   },
 };
 
+const variants = {
+  outline: {
+    _focus: {
+      bg: "white",
+    },
+  },
+};
+
 export default {
   baseStyle,
+  variants,
 };
