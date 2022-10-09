@@ -1,4 +1,4 @@
-import { Card, ScreenLayout, ScreenTitle } from "@/design";
+import { Card, ScreenLayout } from "@/design";
 import { Button, FormControl, Input, useToast } from "native-base";
 import React from "react";
 

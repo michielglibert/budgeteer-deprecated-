@@ -15,7 +15,7 @@ export const TransactionsScreen: React.FC = () => {
             {[...Array(15).keys()].map((_, index) => (
               <SingleTransaction
                 key={index}
-                title="Maxime Verhoeve"
+                title="John Doe"
                 dateTime={new Date()}
                 amount={2.95}
               />

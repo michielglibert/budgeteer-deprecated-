@@ -20,7 +20,7 @@ export const SettingsItem: React.FC<Props> = ({ iconName, title, onPress }) => {
           space="3"
           py="3"
           px="3"
-          bg={isPressed ? "gray.100" : "white"}
+          bg={onPress && isPressed ? "gray.100" : "white"}
         >
           <HStack space="3">
             <MaterialCommunityIcons
