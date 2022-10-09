@@ -24,7 +24,7 @@ const GeneralItems: React.FC<Props> = () => {
   return (
     <Card p="0">
       <SettingsItem
-        iconName="cog-outline"
+        iconName="account-cash"
         title="Budget setup"
         onPress={handleBudgetSetupPress}
       />
