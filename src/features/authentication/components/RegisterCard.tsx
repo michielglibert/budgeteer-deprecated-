@@ -1,11 +1,16 @@
 import { Card, CardTitle } from "@/design";
 import { Button, FormControl, Input, Text, VStack } from "native-base";
 import { Controller, useForm } from "react-hook-form";
-import React from "react";
+import React, { useState } from "react";
 import { RegisterForm, registerFormSchema } from "../types/Form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore";
 
 const RegisterCard: React.FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [apiError, setApiError] = useState<string>();
+
   const {
     control,
     formState: { errors },
@@ -14,14 +19,38 @@ const RegisterCard: React.FC = () => {
     resolver: yupResolver(registerFormSchema),
   });
 
-  const handleRegister = handleSubmit((values) => {
-    console.log(values);
+  const handleRegister = handleSubmit(async (values) => {
+    setIsLoading(true);
+    try {
+      const creds = await auth().createUserWithEmailAndPassword(
+        values.email,
+        values.password
+      );
+      await firestore().collection("users").doc(creds.user.uid).set({
+        email: values.email,
+      });
+    } catch (e) {
+      const errorObject = e as FirebaseAuthTypes.NativeFirebaseAuthError;
+      console.log(errorObject);
+      if (errorObject.message) {
+        const trimmedMessage = errorObject.message.split("]")[1].trim();
+        setApiError(trimmedMessage);
+      } else {
+        setApiError("Something went wrong.");
+      }
+      setIsLoading(false);
+    }
   });
 
   return (
     <Card space="4">
       <VStack space="3">
         <CardTitle>Register</CardTitle>
+        {apiError && (
+          <Text textAlign="center" color="error.500">
+            {apiError}
+          </Text>
+        )}
         <FormControl isInvalid={!!errors.email}>
           <FormControl.Label>Email</FormControl.Label>
           <Controller
@@ -83,7 +112,9 @@ const RegisterCard: React.FC = () => {
         <Text fontSize="xs" color="gray.400">
           By registering you agree to the terms and conditions
         </Text>
-        <Button onPress={handleRegister}>Register</Button>
+        <Button onPress={handleRegister} isLoading={isLoading}>
+          Register
+        </Button>
       </VStack>
     </Card>
   );

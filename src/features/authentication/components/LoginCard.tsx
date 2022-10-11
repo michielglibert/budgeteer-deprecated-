@@ -14,7 +14,7 @@ const LoginCard: React.FC = () => {
 
   const {
     control,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     handleSubmit,
   } = useForm<LoginForm>({
     resolver: yupResolver(loginFormSchema),
@@ -86,7 +86,7 @@ const LoginCard: React.FC = () => {
         </FormControl>
       </VStack>
       <VStack space="2">
-        <Button onPress={handleLogin} isLoading={isSubmitting}>
+        <Button onPress={handleLogin} isLoading={isLoading}>
           Login
         </Button>
         <Button colorScheme="secondary" onPress={handleRegister}>

@@ -1,5 +1,5 @@
 import { LoginScreen, RegisterScreen } from "@/features/authentication";
-import useAuthentication from "@/features/authentication/hooks/useAuthentication";
+import useAuth from "@/features/authentication/hooks/useAuth";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { RootStackNavigationParams } from "../types/RootStackNavigation";
@@ -8,7 +8,7 @@ import RootTabNavigator from "./RootTabNavigator";
 const Stack = createNativeStackNavigator<RootStackNavigationParams>();
 
 export const RootStackNavigator: React.FC = () => {
-  const { user } = useAuthentication();
+  const { user } = useAuth();
 
   return (
     <Stack.Navigator initialRouteName="Login">
