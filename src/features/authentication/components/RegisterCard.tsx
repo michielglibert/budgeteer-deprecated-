@@ -31,7 +31,6 @@ const RegisterCard: React.FC = () => {
       });
     } catch (e) {
       const errorObject = e as FirebaseAuthTypes.NativeFirebaseAuthError;
-      console.log(errorObject);
       if (errorObject.message) {
         const trimmedMessage = errorObject.message.split("]")[1].trim();
         setApiError(trimmedMessage);
