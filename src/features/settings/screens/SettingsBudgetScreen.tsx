@@ -1,6 +1,6 @@
 import { Card, ScreenLayout } from "@/design";
 import { Button, FormControl, Input } from "native-base";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { BudgetForm, budgetSchema } from "../types";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -27,7 +27,7 @@ export const SettingsBudgetScreen: React.FC = () => {
     await setBudget({ ...budgetObject!, budget });
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!isLoading) reset({ ...budgetObject });
   }, [isLoading]);
 
